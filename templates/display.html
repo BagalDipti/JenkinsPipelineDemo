@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><META http-equiv="Content-Type" content="text/html; charset=utf-8"></head><body>
+
+
+
+
+
+<div>
+<table border="1px">
+    <tr>
+        <th>Id</th>
+        <th>Fname</th>
+        <th>Lname</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Action</th>
+    </tr><td>
+    {% for i in displaydata %}
+    <tr>
+
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>
+                <td>{{i[3]}}</td>
+                <td>{{i[4]}}</td>
+        <td>
+            <a href="edit/{{i[0]}}" >Edit</a>
+            <a href="delete/{{i[0]}}" >Delete</a>
+
+
+    </tr><td>
+    {% endfor %}
+
+</td></td></table>
+
+</div>
+</body></html>
