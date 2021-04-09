@@ -70,7 +70,7 @@ def update():
         con.close()
         return redirect(url_for("display"))
     else:
-        return redirect(url_for("display"))
+        return redirect(url_for("display1"))
 
 
 
