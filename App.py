@@ -70,10 +70,10 @@ def update():
         con.close()
         return redirect(url_for("display"))
     else:
-        return redirect(url_for("display"))
+        return redirect(url_for("display1"))
 
 
 
 
 if __name__=='__main__':
-    app.run(debug=True, port=9000)
+    app.run(debug=True, port=4000)
