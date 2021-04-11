@@ -16,10 +16,8 @@ def register():
         email = request.form["email"]
         password= request.form["password"]
 
-        con=sq.connect("../Jenkins_Demo/Student.db")
+        con=sq.connect("Student.db")
         cur=con.cursor()
-
-
         cur.execute("insert into student(fname,lname,email,password)values(?,?,?,?)",(firstname,lastname,email,password))
         con.commit()
         con.close()
@@ -29,7 +27,7 @@ def register():
 
 @app.route("/display")
 def display():
-    con=sq.connect("../Jenkins_Demo/Student.db")
+    con=sq.connect("Student.db")
     cur=con.cursor()
     cur.execute("select * from student")
     data=cur.fetchall()
@@ -40,7 +38,7 @@ def display():
 #delete
 @app.route('/delete/<int:id>')
 def del_action(id):
-    con = sq.connect("../Jenkins_Demo/Student.db")
+    con = sq.connect("Student.db")
     cur = con.cursor()
     cur.execute("delete from student where id=?",[id])
     con.commit()
@@ -49,7 +47,7 @@ def del_action(id):
 
 @app.route('/edit/<int:id>')
 def edit_action(id):
-    con = sq.connect("../Jenkins_Demo/Student.db")
+    con = sq.connect("Student.db")
     cur = con.cursor()
     cur.execute("select * from student where id=?",[id])
     data=cur.fetchone()
@@ -65,7 +63,7 @@ def update():
         email = request.form["email"]
         password= request.form["password"]
 
-        con=sq.connect("../Jenkins_Demo/Student.db")
+        con=sq.connect("Student.db")
         cur=con.cursor()
         cur.execute("update student set fname=?, lname=?,email=?,password=? where id=?",(firstname,lastname,email,password,id))
         con.commit()
